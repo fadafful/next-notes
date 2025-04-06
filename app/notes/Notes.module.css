@@ -1,0 +1,350 @@
+/* app/notes/Notes.module.css */
+.pageContainer {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.pageHeader {
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #0070f3 0%, #6a3de8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.pageSubtitle {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Notes Grid styling */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.emptyState h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.emptyState p {
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.emptyStateButton {
+  display: inline-block;
+  background: linear-gradient(90deg, #0070f3 0%, #6a3de8 100%);
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 118, 255, 0.4);
+}
+
+.emptyStateButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 118, 255, 0.6);
+}
+
+/* Note card styling */
+.note {
+  position: relative;
+  height: 220px;
+  padding: 1.5rem;
+  background: #ffff00;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.note:nth-child(3n+1) {
+  background: #ffff99; /* Light yellow */
+  transform: rotate(-1deg);
+}
+
+.note:nth-child(3n+2) {
+  background: #ffffbb; /* Even lighter yellow */
+  transform: rotate(1deg);
+}
+
+.note:nth-child(3n+3) {
+  background: #ffff77; /* Slightly darker yellow */
+  transform: rotate(0.5deg);
+}
+
+.note:hover {
+  transform: translateY(-8px) rotate(0);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.note h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 0.8rem 0;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.note h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
+  margin: 0 0 auto 0;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.note p {
+  font-size: 0.8rem;
+  margin: 0.5rem 0 0 0;
+  color: #777;
+  font-style: italic;
+}
+
+.notePushpin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff5555;
+  border-radius: 50%;
+  top: 8px;
+  right: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Create Note Form styling */
+.formContainer {
+  background: white;
+  border-radius: 12px;
+  padding: 0rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  margin: 3rem 0;
+  max-width: 700px;
+  text-align: left;
+  margin-left: 0;
+}
+
+.formTitle {
+  font-size: 1.8rem;
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.formTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #0070f3, #6a3de8);
+  border-radius: 2px;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formLabel {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.15);
+}
+
+.formTextarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submitButton {
+  display: inline-block;
+  background: linear-gradient(90deg, #0070f3 0%, #6a3de8 100%);
+  color: white;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 118, 255, 0.4);
+  font-size: 1rem;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 118, 255, 0.6);
+}
+
+.submitButton:active {
+  transform: translateY(1px);
+}
+
+/* Note detail page styling */
+.noteDetailContainer {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.noteDetailCard {
+  background: #ffffcc;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.noteDetailTitle {
+  font-size: 2.2rem;
+  margin: 0 0 1.5rem 0;
+  color: #333;
+}
+
+.noteDetailContent {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 2rem;
+  white-space: pre-wrap;
+}
+
+.noteDetailDate {
+  font-size: 0.9rem;
+  color: #777;
+  font-style: italic;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: #0070f3;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  transform: translateX(-4px);
+}
+
+.backIcon {
+  margin-right: 0.5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .note {
+    height: 200px;
+  }
+  
+  .pageTitle {
+    font-size: 2rem;
+  }
+  
+  .formContainer {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .note {
+    height: auto;
+    min-height: 180px;
+  }
+  
+  .noteDetailCard {
+    padding: 1.5rem;
+  }
+  
+  .noteDetailTitle {
+    font-size: 1.8rem;
+  }
+}
+
+.inputError {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 1px #e53e3e !important;
+}
+
+.errorMessage {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.15);
+}
+
+.formInput.inputError:focus {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15) !important;
+}

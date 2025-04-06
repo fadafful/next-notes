@@ -1,0 +1,383 @@
+/* app/home.module.css */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 0;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+}
+
+.heroContent {
+  width: 55%;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #0070f3 0%, #6a3de8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.primaryButton {
+  display: inline-block;
+  background: linear-gradient(90deg, #0070f3 0%, #6a3de8 100%);
+  color: white;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 118, 255, 0.4);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 118, 255, 0.6);
+}
+
+.heroImage {
+  width: 40%;
+  position: relative;
+  z-index: 1;
+}
+
+.notesIllustration {
+  position: relative;
+  height: 300px;
+}
+
+.note1, .note2, .note3 {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: #ffff00;
+  transform: rotate(-5deg);
+}
+
+.note1 {
+  width: 200px;
+  height: 220px;
+  top: 20px;
+  right: 50px;
+  z-index: 3;
+}
+
+.note2 {
+  width: 180px;
+  height: 200px;
+  top: 60px;
+  right: 90px;
+  background: #ffffaa;
+  transform: rotate(3deg);
+  z-index: 2;
+}
+
+.note3 {
+  width: 160px;
+  height: 180px;
+  top: 80px;
+  right: 20px;
+  background: #fff8cc;
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+
+/* Main Content Grid Layout */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+/* Stats Section */
+.statsSection {
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  grid-column: 1;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashIcon, .featureIcon {
+  font-size: 1.75rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.statsCard {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statsCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.statIconWrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f0f7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.statIcon {
+  font-size: 30px;
+}
+
+.statInfo {
+  flex-grow: 1;
+}
+
+.statInfo h3 {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.statValue {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0070f3;
+  margin: 0;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0;
+}
+
+.statDate {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0070f3;
+  margin: 0;
+}
+
+.statTitle {
+  font-size: 1.1rem;
+  color: #444;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+/* Features Section */
+.featuresSection {
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  grid-column: 2;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.featureCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  border-top: 5px solid #0070f3;
+}
+
+.featureCard:nth-child(2) {
+  border-top-color: #6a3de8;
+}
+
+.featureCard:nth-child(3) {
+  border-top-color: #3dcce8;
+}
+
+.featureCard:nth-child(4) {
+  border-top-color: #e83d8e;
+}
+
+.featureCard:hover {
+  transform: translateY(-7px);
+}
+
+.featureIconWrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f0f7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.featureCard h3 {
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.featureCard p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CTA Section */
+.ctaSection {
+  margin: 5rem 0;
+  padding: 3rem;
+  background: linear-gradient(135deg, #0070f3 0%, #6a3de8 100%);
+  border-radius: 16px;
+  color: white;
+  text-align: center;
+}
+
+.ctaContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaContent h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.ctaContent p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.ctaButton {
+  display: inline-block;
+  background: white;
+  color: #0070f3;
+  font-weight: 600;
+  padding: 0.8rem 2.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+  font-size: 1.1rem;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.35);
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 3rem 0;
+  }
+  
+  .heroContent, .heroImage {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .heroContent {
+    margin-bottom: 3rem;
+  }
+  
+  .heroSubtitle {
+    max-width: 100%;
+  }
+  
+  .notesIllustration {
+    height: 250px;
+    margin: 0 auto;
+  }
+  
+  .statsGrid, .featuresGrid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .heroTitle {
+    font-size: 2.3rem;
+  }
+  
+  .statsGrid, .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .statIconWrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .statIcon {
+    font-size: 24px;
+  }
+  
+  .statValue {
+    font-size: 1.8rem;
+  }
+  
+  .ctaSection {
+    padding: 2rem 1.5rem;
+  }
+  
+  .ctaContent h2 {
+    font-size: 1.8rem;
+  }
+}
