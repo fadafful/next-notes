@@ -85,7 +85,7 @@ export default function LoginPage() {
       
       <div className={styles.loginContainer}>
         <div className={`${styles.loginCard} ${styles.matrixCard}`}>
-          <h1 className={styles.loginTitle}>Login to Notes App</h1>
+          <h1 className={styles.loginTitle}>Login to Next Notes</h1>
           
           {isSuccess && (
             <div className={styles.successMessage}>
