@@ -49,26 +49,13 @@ button {
 }
 
 /* Navigation styles */
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eaeaea;
-  background: white; /* Ensure it doesn't overlap visually with the canvas */
-  z-index: 10; /* Stay above matrixCanvas */
-}
-
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 50px;
-  padding: 1rem 2rem 0 2rem; /* Adjusted padding for top spacing */
+  padding: 1rem 5.5rem 0 5.5rem; /* Adjusted padding for top spacing */
   padding-bottom: 1rem;
   border-bottom: 1px solid #eaeaea;
   position: fixed; /* Make it fixed */
