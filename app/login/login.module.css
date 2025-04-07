@@ -1,0 +1,214 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    width: 100%;
+  }
+  
+  .loginCard {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .loginTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: linear-gradient(90deg, #0070f3 0%, #6a3de8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .loginForm {
+    margin-bottom: 1.5rem;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .formLabel {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  .formInput {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  
+  .formInput:focus {
+    outline: none;
+    border-color: #0070f3;
+    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.15);
+  }
+  
+  .errorMessage {
+    background-color: #fed7d7;
+    color: #c53030;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .loginButton {
+    width: 100%;
+    display: inline-block;
+    background: linear-gradient(90deg, #0070f3 0%, #6a3de8 100%);
+    color: white;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 118, 255, 0.4);
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .loginButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 118, 255, 0.6);
+  }
+  
+  .loginButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .formFooter {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .linkText {
+    color: #0070f3;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  
+  .linkText:hover {
+    text-decoration: none;
+  }
+
+.successMessage {
+    background-color: #c6f6d5;
+    color: #22543d;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+/* Matrix theme for the login card */
+.matrixCard {
+    background: rgba(0, 15, 0, 0.85);
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    color: #ddd;
+  }
+  
+  .matrixCard .loginTitle {
+    background: linear-gradient(90deg, #00ff00 0%, #00aa00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  }
+  
+  .matrixCard .formLabel {
+    color: #00ff00;
+  }
+  
+  .matrixCard .formInput {
+    background: rgba(0, 30, 0, 0.7);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    color: #fff;
+    font-family: monospace;
+  }
+  
+  .matrixCard .formInput:focus {
+    border-color: #00ff00;
+    box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.2);
+    outline: none;
+  }
+  
+  .matrixCard .loginButton {
+    background: linear-gradient(90deg, #008800 0%, #00aa00 100%);
+    border: 1px solid #00ff00;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+  
+  .matrixCard .loginButton:hover {
+    background: linear-gradient(90deg, #00aa00 0%, #00cc00 100%);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  .matrixCard .loginButton:disabled {
+    background: #006600;
+    border-color: #008800;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .matrixCard .formFooter {
+    color: #aaa;
+  }
+  
+  .matrixCard .linkText {
+    color: #00ff00;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+  
+  .matrixCard .linkText:hover {
+    color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+    border-bottom-color: #00ff00;
+  }
+  
+  .matrixCard .errorMessage {
+    background-color: rgba(220, 38, 38, 0.2);
+    border: 1px solid rgba(220, 38, 38, 0.4);
+    color: #fca5a5;
+  }
+  
+  .matrixCard .successMessage {
+    background-color: rgba(0, 120, 0, 0.2);
+    border: 1px solid rgba(0, 200, 0, 0.4);
+    color: #90ee90;
+  }
+  
+  /* Add a glowing cursor effect to inputs */
+  .matrixCard .formInput {
+    caret-color: #00ff00;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { border-color: rgba(0, 255, 0, 0.7); }
+    50% { border-color: rgba(0, 255, 0, 0.3); }
+  }

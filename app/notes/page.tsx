@@ -1,21 +1,55 @@
 // app/notes/page.tsx
-import PocketBase from 'pocketbase';
+'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './Notes.module.css';
 import CreateNote from './CreateNote';
+import LoadingState from '../components/LoadingState';
+import { useAuth } from '../context/AuthContext';
 
-async function getNotes() {
-  const db = new PocketBase('http://127.0.0.1:8090');
-  const data = await db.records.getList('notes');
-  console.log('data', data);
-  return data?.items as any[];
-}
+export default function NotesPage() {
+  const [notes, setNotes] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { isAuthenticated } = useAuth();
 
-export default async function NotesPage() {
-  const notes = await getNotes();
+  useEffect(() => {
+    async function fetchNotes() {
+      if (!isAuthenticated) return;
+      
+      try {
+        // Use the original fetch approach that was working before
+        const response = await fetch('http://127.0.0.1:8090/api/collections/notes/records?page=1&perPage=30', {
+          cache: 'no-store'
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch notes');
+        }
+        
+        const data = await response.json();
+        console.log('Fetched notes data:', data);
+        
+        // Set notes from the items array
+        setNotes(data.items || []);
+      } catch (error) {
+        console.error('Error fetching notes:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchNotes();
+  }, [isAuthenticated]);
+
+  // Show loading state while checking authentication
+  if (!isAuthenticated || isLoading) {
+    return <LoadingState />;
+  }
+
   const hasNotes = notes && notes.length > 0;
 
-  return(
+  return (
     <div className={styles.pageContainer}>
       <header className={styles.pageHeader} style={{ textAlign: 'left', marginLeft: 0, paddingLeft: 0 }}>
         <h1 className={styles.pageTitle}>My Notes</h1>

@@ -348,3 +348,99 @@
   border-color: #e53e3e !important;
   box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15) !important;
 }
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.editButton, .saveButton {
+  background: linear-gradient(90deg, #0070f3 0%, #6a3de8 100%);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 118, 255, 0.2);
+}
+
+.editButton:hover, .saveButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 118, 255, 0.3);
+}
+
+.deleteButton, .cancelButton {
+  background: transparent;
+  color: #e53e3e;
+  border: 1px solid #e53e3e;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deleteButton:hover {
+  background-color: #fff5f5;
+  box-shadow: 0 2px 8px rgba(229, 62, 62, 0.15);
+}
+
+.cancelButton {
+  color: #718096;
+  border-color: #cbd5e0;
+}
+
+.cancelButton:hover {
+  background-color: #f7fafc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.deleteButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Edit Form */
+.editForm {
+  width: 100%;
+}
+
+.editForm .formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.editForm .formLabel {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.editForm .formInput {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.editForm .formInput:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.15);
+}
+
+.editForm .formTextarea {
+  min-height: 150px;
+  resize: vertical;
+}

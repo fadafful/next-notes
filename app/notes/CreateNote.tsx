@@ -3,7 +3,9 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import PocketBase from 'pocketbase';
 import styles from './Notes.module.css';
+import { useAuth } from '../context/AuthContext';
 
 export default function CreateNote() {
   const [title, setTitle] = useState('');
@@ -11,11 +13,12 @@ export default function CreateNote() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({ title: '', content: '' });
   const [touched, setTouched] = useState({ title: false, content: false });
-
+  
   const router = useRouter();
+  const { isAuthenticated } = useAuth();
 
   // Validate form fields
-  const validateField = (name, value) => {
+  const validateField = (name: string, value: string) => {
     if (name === 'title') {
       if (!value.trim()) {
         return 'Title is required';
@@ -36,7 +39,7 @@ export default function CreateNote() {
   };
 
   // Handle input change
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     
     if (name === 'title') {
@@ -46,7 +49,7 @@ export default function CreateNote() {
     }
     
     // Clear error when user types
-    if (touched[name]) {
+    if (touched[name as keyof typeof touched]) {
       setErrors({
         ...errors,
         [name]: validateField(name, value)
@@ -55,7 +58,7 @@ export default function CreateNote() {
   };
 
   // Handle input blur
-  const handleBlur = (e) => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     
     setTouched({
@@ -70,7 +73,7 @@ export default function CreateNote() {
   };
 
   // Form submission handler
-  const create = async(e) => {
+  const create = async(e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate all fields before submission
@@ -91,18 +94,27 @@ export default function CreateNote() {
       return;
     }
     
+    if (!isAuthenticated) {
+      alert('You must be logged in to create notes');
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
-      await fetch('http://127.0.0.1:8090/api/collections/notes/records', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          title,
-          content,
-        }),
+      const auth = localStorage.getItem('auth');
+      if (!auth) throw new Error('Authentication required');
+      
+      const { token } = JSON.parse(auth);
+      
+      // Use PocketBase SDK with authentication
+      const pb = new PocketBase('http://127.0.0.1:8090');
+      pb.authStore.save(token, null); // Set the auth token
+      
+      // Create the note
+      await pb.collection('notes').create({
+        title,
+        content,
       });
 
       // Reset form on success

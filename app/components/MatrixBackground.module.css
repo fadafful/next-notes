@@ -1,0 +1,9 @@
+.matrixCanvas {
+    position: fixed;
+    top: 50px; /* 🔹 Match nav height */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
