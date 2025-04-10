@@ -1,6 +1,6 @@
-## Next 13 Demo
+## Next Notes
 
-Build a basic note-taking app with Next.js 13 and Pocketbase. 
+Build a basic note-taking app with Next.js and Pocketbase. 
 
 ### Setup
 
