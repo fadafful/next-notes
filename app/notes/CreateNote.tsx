@@ -7,7 +7,11 @@ import PocketBase from 'pocketbase';
 import styles from './Notes.module.css';
 import { useAuth } from '../context/AuthContext';
 
-export default function CreateNote() {
+interface CreateNoteProps {
+  onNoteCreated?: () => void; // Optional callback for parent to refresh
+}
+
+export default function CreateNote({ onNoteCreated }: CreateNoteProps) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -103,19 +107,38 @@ export default function CreateNote() {
 
     try {
       const auth = localStorage.getItem('auth');
-      if (!auth) throw new Error('Authentication required');
+      if (!auth) {
+        alert('You must be logged in to create notes');
+        router.push('/login');
+        return;
+      }
       
-      const { token } = JSON.parse(auth);
-      
-      // Use PocketBase SDK with authentication
-      const pb = new PocketBase('http://127.0.0.1:8090');
-      pb.authStore.save(token, null); // Set the auth token
+      // Parse the stored auth data
+      const authData = JSON.parse(auth);
       
       // Create the note
-      await pb.collection('notes').create({
-        title,
-        content,
+      const data = {
+        "title": title.trim(),
+        "content": content.trim()
+      };
+
+      const response = await fetch('http://127.0.0.1:8090/api/collections/notes/records', {
+        method: 'POST',
+        headers: {
+           'Content-Type': 'application/json',
+           'Authorization': `Bearer ${authData.token}`
+         },
+         body: JSON.stringify(data)
       });
+      
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to create note');
+      }
+
+      const createdNote = await response.json();
+      console.log('Note created successfully:', createdNote);
 
       // Reset form on success
       setContent('');
@@ -123,10 +146,26 @@ export default function CreateNote() {
       setTouched({ title: false, content: false });
       setErrors({ title: '', content: '' });
       
+      // Call parent callback if provided
+      if (onNoteCreated) {
+        onNoteCreated();
+      }
+      
+      // Multiple refresh strategies
       router.refresh();
+      
+      // Force a hard refresh of the current page
+      window.location.reload();
+      
     } catch (error) {
       console.error('Error creating note:', error);
-      alert('Failed to create note. Please try again.');
+      
+      // More specific error handling
+      if (error instanceof Error) {
+        alert(`Failed to create note: ${error.message}`);
+      } else {
+        alert('Failed to create note. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }

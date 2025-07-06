@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import styles from './login.module.css';
-import MatrixBackground from '../components/MatrixBackground';
+/* import MatrixBackground from '../components/MatrixBackground'; */
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -81,7 +81,7 @@ export default function LoginPage() {
   
   return (
     <>
-      <MatrixBackground />
+      {      /* <MatrixBackground /> */ /* Uncomment if you have a MatrixBackground component */ }
       
       <div className={styles.loginContainer}>
         <div className={`${styles.loginCard} ${styles.matrixCard}`}>
